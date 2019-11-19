@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #cc0202;
+    --secondary-color: #037f96;
+  }
+.lang-selector {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 5px 18px 0px;
+    background: #fff;
+    height: 35px;
+    z-index: 999999999;
+  }
+
+.lang-selector label{
+    cursor: pointer;
+}
+.lang-selector label:hover{
+    color: var(--secondary-color);
+}

@@ -30,7 +30,6 @@ class Form extends Component {
   componentWillMount(){
     let iniLang = localStorage.getItem('lang');
     this.setState({language: iniLang});
-
   }
 
   componentDidMount(){
@@ -43,6 +42,17 @@ class Form extends Component {
     utils.magicLabels();
   }
 
+  callNextPage(page){
+    const divLoad = document.getElementById("loading");
+    divLoad.classList.remove('d-none');
+    let This = this;
+    setTimeout(function(){
+        This.props.history.push(page);
+        window.scrollTo(0, 0);
+        divLoad.classList.add('d-none');
+    },2000);
+  }
+
   handleClickNext(event){
 
     event.preventDefault();
@@ -52,7 +62,6 @@ class Form extends Component {
 
     const $this = event.target;
     
-
     console.log($this.province.value);
     console.log($this.firstname.value);
     console.log($this.textarea.value);
@@ -61,6 +70,9 @@ class Form extends Component {
     if($this.extra){
       console.log($this.extra.value);
     }
+
+    //moving to another page
+    this.callNextPage('Options');
 
   }
 
@@ -107,16 +119,15 @@ render() {
     <React.Fragment>
       <div className="container py-md-5 card mt-5 mb-6 border-0 mainform">
         <div className="row card-body mb-5">
-          
           <div className="col-lg-6 offset-lg-3">
-            <h2 className="h6 text--uppercase medium mb-4">{t('title1.label')}</h2>
-            
+            <h2 className="h6 medium mb-4 super-title"><i className="fa fa-circle dotz" aria-hidden="true"></i>&nbsp;{t('title1.label')}</h2>
+    
             <form autoComplete="off" name="form" className="form" id="form" onSubmit={this.handleClickNext}>
 
               < Select 
                 title={""}
                 name={"province"}
-                placeholder={"Selec Please"}
+                placeholder={t('select.label')}
                 options={this.state.selectOptions}
                 action={this.checkExtraField}
                 optionSelected={this.state.province}
@@ -125,7 +136,6 @@ render() {
 
               {extraField}
 
-    
               < InputText 
                 inputtype={"email"}
                 name={"firstname"}

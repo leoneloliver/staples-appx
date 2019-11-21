@@ -2,6 +2,7 @@ $primary-color: #cc0202;
 $secondary-color: #037f96;
 $dark-bg: #000;
 $light-bg: #f3f3f2;
+$white: #ffff;
 
 body{
     font-family: Helvetica Neue,Arial,sans-serif !important;
@@ -41,10 +42,10 @@ label{
 .button--secondary {
   border-color: $secondary-color !important;
   color: $secondary-color !important;
-}
-.button--secondary:focus, .button--secondary:hover {
-  background-color: $secondary-color !important;
-  color: #fff !important;
+  &:hover, &:focus {
+    background-color: $secondary-color !important;
+    color: $white !important;
+  }
 }
 
 .article-link .fake_link, .bundles__item .fake_link, .hero-banner-secondary .fake_link, .hero-banner-secondary__image-wrap .fake_link, .hero-banner__row .fake_link, .info-card .fake_link, .promo-block .fake_link, [tabindex], a, button, input, select, textarea {
@@ -108,7 +109,7 @@ label{
   position: absolute;
   left: 5px;
   top: 12px;
-  background: white;
+  background: $white;
   width: 2px;
   height: 2px;
   box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
@@ -118,33 +119,34 @@ label{
 
 .btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
   color: #212529;
-  background-color: #fff !important;
+  background-color: $white !important;
   border-color: #d3d9df;
 }
 
-.form-control:focus, .form-control:hover, .form-control:active {
-  background: #fff !important;
-  box-shadow: 0 0 0 0.2rem #fff;
-  border-color: auto;
-  outline: 0 !important;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border: thin #037f96 solid !important;
+.form-control {
+  border: thin solid #ccc !important;
   border-radius: 1px;
+  &:focus, &:hover, &:active{
+    background: $white !important;
+    box-shadow: 0 0 0 0.2rem $white;
+    border-color: auto;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem transparent;
+    border: thin $secondary-color solid !important;
+    border-radius: 1px;
+    background: $white !important;
+
+  }
+
 }
+
+
 
 input:focus, textarea:focus, select:focus, .bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
   outline: none !important;
   border-radius: 1px;
 }
 
-.form-control:focus, .form-control:hover, .form-control:active {
-  background: #fff !important;
-}
-.form-control {
-  border: thin solid #ccc !important;
-  border-radius: 1px;
-
-}
 .btn-light.focus, .btn-light:focus {
   box-shadow: none !important;
   border-radius: 1px;
@@ -196,4 +198,50 @@ input:focus, textarea:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
     width: 8.75rem;
   }
 
+}
+
+.wrapper-loading{
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  background: #dfdfdfa8;
+  top: 0;
+  z-index: 9999;
+}
+.spinner{
+  width: 55px;
+  height: 55px;
+  /* background-color: blue; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.dropdown-toggle::after{
+  color: #ccc !important;
+}
+
+.custom-select{
+  &:hover{
+    .dropdown-toggle::after{
+      color: $secondary-color !important;
+    }
+  }
+}
+
+.dotz{
+  color: $primary-color;
+  font-size: 0.8rem;
+}
+.super-title{
+  font-size: 2.25rem;
+  line-height: 3rem;
+  color: #444;
+  font-weight: 400;
 }

@@ -16,7 +16,8 @@ export function customSelect(){
     $('.custom-select').selectpicker();
 }
 
-export function selectList(lang){
+export function selectList(lang = ''){
+
     if(lang == "fr"){
         return [{title:"Mustardee",value:"Mustardee"},{title:"Ketchuptomate",value:"Ketchuptomate"},{title:"Churras",value:"Churras"}]
     }else{

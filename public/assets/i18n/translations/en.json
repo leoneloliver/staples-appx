@@ -1,11 +1,12 @@
 {
   "hello.label": "Hello",
   "thankyou.label": "Thank you",
-  "title1.label": "New Customer or Account Re-register",
+  "title1.label": "About You",
   "emailaddress.label": "Email address",
   "password.label": "Password",
   "remember.label": "Remember me",
   "submit.label": "Submit",
   "textarea.label": "Some text here!",
-  "footer.label": "© 2019. Staples Canada ULC, All Rights Reserved. This Website is intended only for use by Canadian residents. See our Delivery Policy for full details."
+  "footer.label": "© 2019. Staples Canada ULC, All Rights Reserved. This Website is intended only for use by Canadian residents. See our Delivery Policy for full details.",
+  "select.label": "Please Select"
 }

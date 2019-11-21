@@ -44,7 +44,7 @@ class Header extends Component {
     return (
       <React.Fragment>
         <div className="col-12 align-items-center text-center py-3 bg-white pb-4">
-            <div className="text-center d-block">
+            <div className="text-center d-block container">
                 {componentLogo}
             </div>
             < LanguageSelector />

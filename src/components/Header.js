@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withTranslation } from 'react-i18next';
-import logo from '../images/logo.png';
+import logo from '../images/staples-logo-en.png';
 import logoFR from '../images/logo-fr.png';
 import LanguageSelector from '../components/LanguageSelector';
 // import $ from 'jquery';
@@ -43,7 +43,7 @@ class Header extends Component {
     }
     return (
       <React.Fragment>
-        <div className="col-12 align-items-center text-center py-3 bg-white pb-4">
+        <div className="col-12 align-items-center text-center py-2 bg-white pb-3 shadow">
             <div className="text-center d-block container">
                 {componentLogo}
             </div>

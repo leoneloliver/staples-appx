@@ -30,7 +30,6 @@ label{
 }
 .header__logo {
   width: 12.75rem;
-  margin: .9375rem auto 0;
 }
 .header__logo_fr {
   width: 10.75rem;
@@ -244,4 +243,21 @@ input:focus, textarea:focus, select:focus, .bootstrap-select .dropdown-toggle:fo
   line-height: 3rem;
   color: #444;
   font-weight: 400;
+}
+
+// @supports (display: grid){
+//   html{ background: green}
+// }
+
+.error-msg{
+  border: 1px solid $primary-color !important;
+}
+
+.partner-card{
+  padding: 15px 10px;
+  transition: all .3s ease;
+  &:hover{
+    transition: all .3s ease;
+    padding: 2px 5px;
+  }
 }

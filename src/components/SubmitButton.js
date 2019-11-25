@@ -8,7 +8,7 @@ const SubmitButton = props => {
                 <div className="col-md-12 mt-4">
                     <div className="block-container">
                         <button 
-                            id={props.idname}
+                            id={props.id}
                             className={"btn btn-outline-info- btn-block button--secondary text-uppercase"}
                             type={props.inputtype}
                             onClick={props.action}
@@ -16,6 +16,7 @@ const SubmitButton = props => {
                         >
                         {props.label}
                         { props.icon ? <i className={props.icon}></i> : null }
+                        &nbsp;&nbsp;<span className="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         </button>
                     </div>
                 </div>

@@ -1,12 +1,14 @@
 {
-    "hello.label": "Salut",
-    "thankyou.label": "Monde",
-    "title1.label": "Au propos de vous",
-    "emailaddress.label": "Adresses mail",
-    "password.label": "Mot de passe",
-    "remember.label": "Souviens-toi de moi",
-    "submit.label": "Soumettre",
-    "textarea.label": "Du texte ici!",
-    "footer.label": "Droit d'auteur 2019, Bureau en Gros Ltée., Tous droits réservés. Ce site Web est réservé aux résidents du Canada. Consultez notre politique de livraison.",
-    "select.label": "Veuillez Choisir"
+  "hello.label": "Salut",
+  "thankyou.label": "Monde",
+  "title1.label": "Au propos de vous",
+  "emailaddress.label": "Adresses mail",
+  "password.label": "Mot de passe",
+  "remember.label": "Souviens-toi de moi",
+  "phonenumber.label": "Numéro de contact principal",
+  "postalcode.label": "Code Postal",
+  "submit.label": "Soumettre",
+  "textarea.label": "Du texte ici!",
+  "footer.label": "Droit d'auteur 2019, Bureau en Gros Ltée., Tous droits réservés. Ce site Web est réservé aux résidents du Canada. Consultez notre politique de livraison.",
+  "select.label": "Veuillez Choisir"
   }

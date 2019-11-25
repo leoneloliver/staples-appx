@@ -4,7 +4,6 @@ import React from 'react';
 const InputText = props => {
     return (
         <div className="form-group">
-            
             <input 
                 value={props.value}
                 id={props.idname}

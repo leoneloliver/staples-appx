@@ -5,6 +5,7 @@ import Select from '../components/Select';
 import TextArea from '../components/TextArea';
 import CheckBox from '../components/CheckBox';
 import SubmitButton from '../components/SubmitButton';
+import ErrorAlertMsg from '../components/ErrorAlertMsg';
 // import $ from 'jquery';
 import * as utils from '../utils/utils';
 
@@ -23,7 +24,12 @@ class Form extends Component {
       textarea: '',
       checkbox: false,
       extraField: false,
-      extra: ''
+      extra: '',
+      phonenumber: '',
+      postalcode: '',
+      date: '',
+      fistname: '',
+
     }
   }
 
@@ -36,6 +42,10 @@ class Form extends Component {
     utils.customSelect();
     utils.magicLabels();
     this.setState({selectOptions: utils.selectList(this.state.language)});
+    utils.maskPhone();
+    utils.maskDate();
+    utils.numberMask();
+    utils.typeSelecBehavior();
   }
 
   componentDidUpdate(){
@@ -53,26 +63,45 @@ class Form extends Component {
     },2000);
   }
 
+  disableSubmit(){
+     // disable submit after click
+     const submitButton = document.getElementById('submit');
+     submitButton.setAttribute('disabled', 'disabled');  
+     document.getElementsByClassName('spinner-border')[0].classList.remove('d-none');
+  }
+
   handleClickNext(event){
 
     event.preventDefault();
-    console.log('call to action');
-    // console.log(this.state.checkbox);
-    // console.log(this.state.province);
 
-    const $this = event.target;
+    // validations for fields 
+    let isValid = utils.validateForm();        
+
+      if(isValid){ 
+        console.log('call to action');
+
+        this.disableSubmit();
+
+        const $this = event.target;
+        
+        console.log($this.province.value);
+        console.log($this.email.value);
+        console.log($this.textarea.value);
+        console.log($this.password.value);
+        console.log($this.phonenumber.value);
+        console.log($this.postalcode.value);
+        console.log($this.remember.value);
+        if($this.extra){
+          console.log($this.extra.value);
+        }
+
+        //moving to another page
+        this.callNextPage('Options');
+
+        //  call API's here
+ 
+      }
     
-    console.log($this.province.value);
-    console.log($this.firstname.value);
-    console.log($this.textarea.value);
-    console.log($this.password.value);
-    console.log($this.remember.value);
-    if($this.extra){
-      console.log($this.extra.value);
-    }
-
-    //moving to another page
-    this.callNextPage('Options');
 
   }
 
@@ -124,6 +153,28 @@ render() {
     
             <form autoComplete="off" name="form" className="form" id="form" onSubmit={this.handleClickNext}>
 
+
+              {/* <div className="row">
+                <div className="col-md-12">
+                  < InputText 
+                    inputtype={"fistname"}
+                    name={"fistname"}
+                    placeholder={t('fistname.label')}
+                    required={""}
+                    value={this.state.email}
+                    idname={"fistname"}
+                    onChange={(event) => this.setState({fistname: event.target.value})}
+                    title={t('fistname.label')}
+                    required={"required"}
+                  />
+
+                </div>
+                <div>
+
+                </div>
+              </div> */}
+
+
               < Select 
                 title={""}
                 name={"province"}
@@ -138,7 +189,7 @@ render() {
 
               < InputText 
                 inputtype={"email"}
-                name={"firstname"}
+                name={"email"}
                 placeholder={t('emailaddress.label')}
                 required={""}
                 value={this.state.email}
@@ -146,7 +197,7 @@ render() {
                 onChange={(event) => this.setState({email: event.target.value})}
                 autoComplete={"username"}
                 title={t('emailaddress.label')}
-                required={"required"}
+                required={""}
               />
 
               < InputText 
@@ -173,6 +224,30 @@ render() {
                 required={"required"}
               />
 
+              < InputText 
+                inputtype={"text"}
+                title={t('phonenumber.label')}
+                name={"phonenumber"}
+                placeholder={t('phonenumber.label')}
+                required={""}
+                id={"phonemask"}
+                value={this.state.phonenumber}
+                maxLength={14}
+                className={"form-control input_element phonemask"}
+                onChange={(event) => this.setState({phonenumber: event.target.value})}
+              />
+
+              < InputText 
+                inputtype={"text"}
+                title={t('postalcode.label')}
+                name={"postalcode"}
+                placeholder={t('postalcode.label')}
+                value={this.state.postalcode}
+                required={""}
+                maxLength={7}
+                onChange={(event) => this.setState({postalcode: event.target.value})}
+              />
+
               < CheckBox 
                 name={"remember"}
                 idname={"remember"}
@@ -181,14 +256,45 @@ render() {
                 onChange={this.handleCheckBox}
               />
 
+              < InputText 
+                inputtype={"text"}
+                title={"Date fo Birth"}
+                name={"date"}
+                placeholder={"YYYY/MM/DD"}
+                required={""}
+                id={"date"}
+                value={this.state.date}
+                maxLength={10}
+                className={"form-control input_element"}
+                onChange={(event) => this.setState({date: event.target.value})}
+              />
+
+              < InputText 
+                inputtype={"text"}
+                title={"What is your business’s operating profit?"}
+                name={"AnnualOperatingProfit"}
+                placeholder={"Annual Operating Profit"}
+                icon={""}
+                required={""}
+                className={"currency form-control"}
+                maxlength={12}
+                // value={this.state.annual_operating_profit}
+                onChange={(event) => this.setState({annual_operating_profit: event.target.value})}
+              />
+
               < SubmitButton 
                 name={"NextStep"}
-                idName={"submit"}
                 inputtype={"submit"}
                 action={this.onSubmit}
+                id={"submit"}
                 label={t('submit.label')}
-              />   
+              /> 
 
+              < ErrorAlertMsg
+                id={"error-container"}
+                text={"Please fill out all required fields!"}
+              />
+                
             </form>
           </div>
           

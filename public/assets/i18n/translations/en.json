@@ -5,6 +5,8 @@
   "emailaddress.label": "Email address",
   "password.label": "Password",
   "remember.label": "Remember me",
+  "phonenumber.label": "Main contact number",
+  "postalcode.label": "Postal Code",
   "submit.label": "Submit",
   "textarea.label": "Some text here!",
   "footer.label": "© 2019. Staples Canada ULC, All Rights Reserved. This Website is intended only for use by Canadian residents. See our Delivery Policy for full details.",
